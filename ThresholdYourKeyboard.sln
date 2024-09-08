@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{B1BC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThresholdRelative", "Plugins\ThresholdRelative\ThresholdRelative.csproj", "{D61E1C07-DD25-490A-BFF2-0858A40947D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThresholdYourKeyboardTest", "ThresholdYourKeyboardTest\ThresholdYourKeyboardTest.csproj", "{D9189CA8-D111-4B12-AD60-D404603D1A3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThresholdYourKeyboardTest", "ThresholdYourKeyboardTest\ThresholdYourKeyboardTest.csproj", "{D9189CA8-D111-4B12-AD60-D404603D1A3F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

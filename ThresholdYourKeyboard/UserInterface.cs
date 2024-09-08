@@ -61,14 +61,14 @@ namespace ThresholdYourKeyboard {
             Console.Clear();
             Console.WriteLine("Set Threshold Value");
             Console.WriteLine(CurrentThresholdChecker.UserInstructions);
-            bool invalideValue = true;
-            while (invalideValue) {
+            bool invalidValue = true;
+            while (invalidValue) {
                 var userInput = Console.ReadLine();
                 if (userInput == null || !double.TryParse(userInput, out double value) || !CurrentThresholdChecker.SetThreshold(value)) {
                     Console.WriteLine("Enter valid value");
                     continue;
                 }
-                invalideValue = false;
+                invalidValue = false;
                 CurrentState = State.Play;
             }
 
@@ -82,7 +82,6 @@ namespace ThresholdYourKeyboard {
             var cts = new CancellationTokenSource();
             var collect = new KeyStatsCollect(CurrentThresholdChecker, cts);
             var display = new KeyStatsDisplay(collect, cts);
-            //Task.WaitAny(collect.Start(), display.Start());
             display.Start().Wait();
             CurrentState = State.SelectThresholdType;
         }
