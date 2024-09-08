@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 namespace ThresholdYourKeyboard {
     internal class UserInterface {
         internal enum State { SelectThresholdType, SetThresholdValue, Play, Exit }
-        private readonly PluginRepo PluginRepo;
+        private readonly PluginRepo<double> PluginRepo;
         private readonly Dictionary<State, Action> StateActions = new();
-        private ThresholdChecker? CurrentThresholdChecker;
+        private ThresholdChecker<double>? CurrentThresholdChecker;
         internal State CurrentState { get; private set; }
 
-        internal UserInterface(PluginRepo pluginRepo) {
+        internal UserInterface(PluginRepo<double> pluginRepo) {
             PluginRepo = pluginRepo;
             CurrentState = State.SelectThresholdType;
             StateActions.Add(State.SelectThresholdType, ShowThresholdMenu);

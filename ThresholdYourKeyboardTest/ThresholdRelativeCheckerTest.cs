@@ -11,7 +11,7 @@ namespace ThresholdYourKeyboardTest {
     public class ThresholdRelativeCheckerTest {
         [TestMethod]
         public void SetThresholdTest() {
-            ThresholdChecker thresholdChecker = new ThresholdRelativeChecker();
+            ThresholdChecker<double> thresholdChecker = new ThresholdRelativeChecker();
             Assert.IsFalse(thresholdChecker.SetThreshold(0.6));
             Assert.IsFalse(thresholdChecker.SetThreshold(101));
             Assert.IsTrue(thresholdChecker.SetThreshold(10));
@@ -20,7 +20,7 @@ namespace ThresholdYourKeyboardTest {
 
         [TestMethod]
         public void CheckThresholdTest() {
-            ThresholdChecker thresholdChecker = new ThresholdRelativeChecker();
+            ThresholdChecker<double> thresholdChecker = new ThresholdRelativeChecker();
             thresholdChecker.SetThreshold(10);
 
             Assert.IsFalse(thresholdChecker.CheckThreshold(100, 110));

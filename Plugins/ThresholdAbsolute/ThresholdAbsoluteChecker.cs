@@ -1,7 +1,7 @@
 ﻿using ExtensionAbstraction;
 
 namespace ThresholdAbsolute {
-    public class ThresholdAbsoluteChecker : ThresholdChecker {
+    public class ThresholdAbsoluteChecker : ThresholdChecker<double> {
         public ThresholdAbsoluteChecker() {
             FriendlyName = "Absolute amount threshold";
             UserInstructions = "Set Absolute value for number of clicks player need to dominate.";

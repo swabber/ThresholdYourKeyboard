@@ -1,7 +1,7 @@
 ﻿using ExtensionAbstraction;
 
 namespace ThresholdRelative {
-    public class ThresholdRelativeChecker : ThresholdChecker {
+    public class ThresholdRelativeChecker : ThresholdChecker<double> {
         public ThresholdRelativeChecker() {
             FriendlyName = "Relative % threshold";
             UserInstructions = "Set % value from 1 to 99 for player to dominate.";

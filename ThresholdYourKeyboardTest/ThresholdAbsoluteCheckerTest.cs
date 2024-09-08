@@ -6,7 +6,7 @@ namespace ThresholdYourKeyboardTest {
     public class ThresholdAbsoluteCheckerTest {
         [TestMethod]
         public void SetThresholdTest() {
-            ThresholdChecker thresholdChecker = new ThresholdAbsoluteChecker();
+            ThresholdChecker<double> thresholdChecker = new ThresholdAbsoluteChecker();
             thresholdChecker.SetThreshold(20);
             Assert.AreEqual(20, thresholdChecker.Threshold);
 
@@ -16,7 +16,7 @@ namespace ThresholdYourKeyboardTest {
 
         [TestMethod]
         public void CheckThresholdTest() {
-            ThresholdChecker thresholdChecker = new ThresholdAbsoluteChecker();
+            ThresholdChecker<double> thresholdChecker = new ThresholdAbsoluteChecker();
             thresholdChecker.SetThreshold(20);
 
             Assert.IsTrue(thresholdChecker.CheckThreshold(80, 101));

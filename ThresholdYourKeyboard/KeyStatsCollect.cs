@@ -17,7 +17,7 @@ namespace ThresholdYourKeyboard {
         private bool LeftStarted = false;
         private bool RightStarted = false;
         private CancellationTokenSource CancellationTokenSource;
-        private readonly ThresholdChecker ThresholdChecker;
+        private readonly ThresholdChecker<double> ThresholdChecker;
 
         public double LeftPlayerScore;
         public double RightPlayerScore;
@@ -26,7 +26,7 @@ namespace ThresholdYourKeyboard {
 
         [DllImport("user32.dll")]
         internal static extern short GetAsyncKeyState(int vKey);
-        internal KeyStatsCollect(ThresholdChecker thresholdChecker, CancellationTokenSource cts) {
+        internal KeyStatsCollect(ThresholdChecker<double> thresholdChecker, CancellationTokenSource cts) {
             CancellationTokenSource = cts;
             CollectStats = new Task(Collect, cts.Token);
             LeftCtrlQ = new Queue<long>();

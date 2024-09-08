@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ExtensionAbstraction {
-    public abstract class ThresholdChecker {
+    public abstract class ThresholdChecker<T> {
         public double Threshold { get; protected set; }
         public string FriendlyName { get; protected set; }
         public string UserInstructions { get; protected set; }
@@ -14,8 +14,8 @@ namespace ExtensionAbstraction {
             UserInstructions = "input proper value for current ThresholdChecker implementation";
         }
 
-        public abstract bool SetThreshold(double value);
+        public abstract bool SetThreshold(T value);
 
-        public abstract bool CheckThreshold(double value1, double value2);
+        public abstract bool CheckThreshold(T value1, T value2);
     }
 }

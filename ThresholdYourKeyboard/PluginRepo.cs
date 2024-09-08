@@ -7,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ThresholdYourKeyboard {
-    internal class PluginRepo {
+    internal class PluginRepo<T> where T : struct {
 
-        public List<ThresholdChecker> Plugins = new List<ThresholdChecker>();
+        public List<ThresholdChecker<T>> Plugins = new List<ThresholdChecker<T>>();
 
         public void LoadPlugins() {
             string currentDirectory = Directory.GetCurrentDirectory();
@@ -18,10 +18,10 @@ namespace ThresholdYourKeyboard {
             foreach (string file in dllFiles) {
                 Assembly assembly = Assembly.LoadFrom(file);
                 foreach (var type in assembly.GetTypes()) {
-                    if (!type.IsClass || type.IsAbstract || !type.IsSubclassOf(typeof(ThresholdChecker))) { continue; }
+                    if (!type.IsClass || type.IsAbstract || type.BaseType == null || !type.BaseType.IsGenericType || type.BaseType.GetGenericTypeDefinition() != typeof(ThresholdChecker<>)) { continue; }
                     var item = Activator.CreateInstance(type);
                     if (item == null) { continue; }
-                    ThresholdChecker plugin = (ThresholdChecker)item;
+                    ThresholdChecker<T> plugin = (ThresholdChecker<T>)item;
                     if (plugin == null) { continue; }
                     Plugins.Add(plugin);
                 }
