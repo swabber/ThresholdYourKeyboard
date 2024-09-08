@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExtensionAbstraction {
     public abstract class ThresholdChecker<T> {
-        public double Threshold { get; protected set; }
+        public T Threshold { get; protected set; }
         public string FriendlyName { get; protected set; }
         public string UserInstructions { get; protected set; }
         protected ThresholdChecker(){
